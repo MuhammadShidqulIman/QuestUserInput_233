@@ -6,7 +6,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.input.TextFieldValue
+
 
 @Composable
 fun FormDataDiri(modifier: Modifier) {
@@ -14,7 +17,7 @@ fun FormDataDiri(modifier: Modifier) {
 
     var textNama by remember { mutableStateOf(value = "") }
     var textAlamat by remember { mutableStateOf(value = "") }
-    var textJk by remember { mutableStateOf(value = "") }
+    var textJK by remember { mutableStateOf(value = "") }
 
 
     var nama by remember { mutableStateOf(value = "") }
@@ -43,12 +46,10 @@ fun FormDataDiri(modifier: Modifier) {
 
         Row {
             gender.forEach { item ->
-                Row(
-                    modifier = Modifier
-                        .selectable(
-                            selected = (textJK == item),
-                            onClick = { textJK = item }
-                        )
+                Row(modifier = Modifier.selectable(
+                    selected = (textJK == item),
+                    onClick = { textJK = item }
+                )
                         .padding(horizontal = 8.dp)
                 ) {
                     RadioButton(
@@ -59,3 +60,16 @@ fun FormDataDiri(modifier: Modifier) {
                 }
             }
         }
+        OutlinedTextField(
+            value = textAlamat,
+            singleLine = true,
+            modifier = Modifier.width(250.dp),
+            label = { Text(text = "Alamat Lengkap") },
+            onValueChange = {
+                textAlamat = it
+            }
+        )
+
+
+}
+
