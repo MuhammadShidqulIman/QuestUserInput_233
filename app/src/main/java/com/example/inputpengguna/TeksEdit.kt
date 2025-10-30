@@ -8,6 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 
 
@@ -69,29 +71,4 @@ fun FormDataDiri(modifier: Modifier) {
                 textAlamat = it
             }
         )
-        HorizontalDivider(
-            modifier = Modifier.padding(
-                bottom = dimensionResource(id = R.dimen.padding_medium),
-                top = dimensionResource(
-                    id = R.dimen.padding_medium
-                )),
-            thickness = dimensionResource(id = R.dimen.divider_tipis),
-            color = Color.DarkGray
-        )
-        Button(
-            modifier = Modifier.fillMaxWidth(fraction = 1f),
-            // the button is enabled when the user makes a selection
-            enabled = textAlamat.isNotEmpty(),
-            onClick = {
-                nama = textNama
-                jenis = textJK
-                alamat = textAlamat
-            }
-        ){
-
-        }
-
-
-
-}
 
