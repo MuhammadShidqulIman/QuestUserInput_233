@@ -30,4 +30,32 @@ fun FormDataDiri(modifier: Modifier) {
     ) {
 
 
+        OutlinedTextField(
+            value = textNama,
+            onValueChange = { textNama = it },
+            label = { Text(text = "Nama Lengkap") },
+            singleLine = true,
+            shape = MaterialTheme.shapes.large,
+            modifier = Modifier.width(250.dp)
+        )
 
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Row {
+            gender.forEach { item ->
+                Row(
+                    modifier = Modifier
+                        .selectable(
+                            selected = (textJK == item),
+                            onClick = { textJK = item }
+                        )
+                        .padding(horizontal = 8.dp)
+                ) {
+                    RadioButton(
+                        selected = (textJK == item),
+                        onClick = { textJK = item }
+                    )
+                    Text(text = item)
+                }
+            }
+        }
